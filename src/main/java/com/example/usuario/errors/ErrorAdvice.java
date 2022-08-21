@@ -27,7 +27,7 @@ public class ErrorAdvice {
     public ApiError handleNotFound (NotFoundException exception, HttpServletRequest request){
         return  ApiError.builder()
                                         .message(exception.getMessage())
-                                        .status(404)
+                                        .status(HttpStatus.NOT_FOUND.value())
                                         .timestamp(LocalDateTime.now())
                                         .path(request.getServletPath())
                                         .build();
